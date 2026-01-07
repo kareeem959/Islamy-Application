@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-import '../core/app_colours.dart';
-import 'HomeScreen.dart';
+import '../utils/app_colours.dart';
+import '../utils/app_routs.dart';
 
 class OnboardingScreen extends StatelessWidget {
-  static const String routeName = 'onboarding_screen';
-
   OnboardingScreen({super.key});
 
   final TextStyle titlestyle = TextStyle(
@@ -90,10 +88,10 @@ class OnboardingScreen extends StatelessWidget {
       ),
       showBackButton: true,
       onSkip: () {
-        Navigator.pushNamed(context, HomeScreen.routeName);
+        Navigator.pushNamed(context, AppRouts.homeScreenRoute);
       },
       onDone: () {
-        Navigator.pushNamed(context, HomeScreen.routeName);
+        Navigator.pushNamed(context, AppRouts.homeScreenRoute);
       },
     );
   }
