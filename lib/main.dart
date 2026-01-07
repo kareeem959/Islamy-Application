@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/utils/app_routs.dart' show AppRouts;
+import 'package:islamy_app/utils/app_theme.dart';
 
 import 'home_screen/HomeScreen.dart';
 import 'home_screen/onboarding_screen.dart';
@@ -13,12 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: OnboardingScreen.routeName,
+      initialRoute: AppRouts.onboarding_screenRoute,
       routes: {
-        OnboardingScreen.routeName: (context) => OnboardingScreen(),
-        HomeScreen.routeName: (context) => HomeScreen()
+        AppRouts.onboarding_screenRoute: (context) => OnboardingScreen(),
+        AppRouts.homeScreenRoute: (context) => HomeScreen(),
       },
 
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }
