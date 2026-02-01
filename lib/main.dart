@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/utils/app_routs.dart' show AppRouts;
+import 'package:islamy_app/utils/app_theme.dart';
 
-import 'home_screen/home_screen.dart';
+import 'home_screen/HomeScreen.dart';
+import 'home_screen/onboarding_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -13,8 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.routName,
-      routes: {HomeScreen.routName: (context) => HomeScreen()},
+      initialRoute: AppRouts.onboarding_screenRoute,
+      routes: {
+        AppRouts.onboarding_screenRoute: (context) => OnboardingScreen(),
+        AppRouts.homeScreenRoute: (context) => HomeScreen(),
+      },
+
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }
