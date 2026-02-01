@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // استيراد المكتبة
 
 import '../utils/app_colours.dart';
 import '../utils/app_routs.dart';
@@ -7,16 +8,25 @@ import '../utils/app_routs.dart';
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({super.key});
 
-  final TextStyle titlestyle = TextStyle(
+  final TextStyle titlestyle = const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
     color: AppColours.primaryColor,
   );
-  final TextStyle bodystyle = TextStyle(
+  final TextStyle bodystyle = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: AppColours.primaryColor,
   );
+
+  void _onIntroEnd(BuildContext context) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarding_completed', true);
+
+    if (context.mounted) {
+      Navigator.pushReplacementNamed(context, AppRouts.homeScreenRoute);
+    }
+  }
 
   late final listPagesViewModel = [
     PageViewModel(
@@ -73,7 +83,7 @@ class OnboardingScreen extends StatelessWidget {
       done: Text("Done", style: bodystyle),
       dotsDecorator: DotsDecorator(
         color: const Color(0xff707070),
-        activeSize: Size(18, 7),
+        activeSize: const Size(18, 7),
         activeColor: AppColours.primaryColor,
         activeShape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
@@ -81,18 +91,13 @@ class OnboardingScreen extends StatelessWidget {
       ),
       showSkipButton: true,
       skip: Text("skip", style: bodystyle),
-
       back: const Icon(
         Icons.arrow_back_ios_new,
         color: AppColours.primaryColor,
       ),
       showBackButton: true,
-      onSkip: () {
-        Navigator.pushNamed(context, AppRouts.homeScreenRoute);
-      },
-      onDone: () {
-        Navigator.pushNamed(context, AppRouts.homeScreenRoute);
-      },
+      onSkip: () => _onIntroEnd(context),
+      onDone: () => _onIntroEnd(context),
     );
   }
 }

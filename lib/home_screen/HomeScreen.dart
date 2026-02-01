@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tablist = [
     QuranTap(),
     HadethTap(),
-    SebhaTap(),
+    SebhaTab(),
     RadioTap(),
     TimeTap(),
   ];

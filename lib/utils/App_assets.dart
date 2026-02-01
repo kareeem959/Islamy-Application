@@ -22,4 +22,24 @@ class AppAssets {
   static const String time = "assets/images/time.png";
   static const String timePg = "assets/images/timepg.png";
   static const String iconeTimeSelect = "assets/images/time_select.png";
+  static const String defaultBg = "assets/images/default_bg.png";
+  static const String sebhaHead = "assets/images/sebhaa.png";
+  static const String sebhaBead = "assets/images/sebhaa_circule.png";
+  static const String quranSearchIcon = "assets/images/quranSearchIcon.png";
+  static const String most_recent = "assets/images/img_most_recent.png";
+  static const String vector = "assets/images/Group.png";
+  static const String El_Messiri =
+      "assets/images/El_Messiri/ElMessiri-VariableFont_wght.ttf";
+
+  // quran images
+  static const String leftcorrnerImage = "assets/images/img_left_corner.png";
+  static const String rightcorrnerImage = "assets/images/img_right_corner.png";
+  static const String mousqueImage = "assets/images/img_bottom_decoration.png";
+
+  // hadeth images
+  static const String hadethleftcorrner = "assets/images/left_corner.png";
+  static const String hadehrightcorrner = "assets/images/right_corner.png";
+  static const String hadehMosque = "assets/images/Mosque.png";
+  static const String hadehbackground = "assets/images/Hadith_background.png";
+  //
 }
